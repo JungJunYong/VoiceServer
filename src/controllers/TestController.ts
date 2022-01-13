@@ -2,7 +2,7 @@ import {Controller} from "@tsed/di";
 import {Delete, Get, Post} from "@tsed/schema";
 
 @Controller("/test")
-export class HelloWorldController {
+export class TestController {
     @Get("/")
     get() {
         return {test: '1234'};
