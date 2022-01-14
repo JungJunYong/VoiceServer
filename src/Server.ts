@@ -1,6 +1,7 @@
 import {Configuration, Inject} from "@tsed/di";
 import {PlatformApplication} from "@tsed/common";
-import "@tsed/platform-express"; // /!\ keep this import
+import "@tsed/platform-express";
+import "@tsed/socketio";
 import bodyParser from "body-parser";
 import compress from "compression";
 import cookieParser from "cookie-parser";
@@ -24,6 +25,12 @@ import {config, rootDir} from "./config";
     root: `${rootDir}/views`,
     extensions: {
       ejs: "ejs"
+    }
+  },
+  socketIO: {
+    cors: {
+      origin: true,
+      methods: ["GET", "POST"]
     }
   },
   exclude: [

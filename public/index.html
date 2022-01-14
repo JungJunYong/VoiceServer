@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Test</title>
+    <script src="http://localhost:8888/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    var socket = io("http://localhost:8888/Chat", {path: '/socket.io/Chat/'});
+
+    socket.on("connect", () => {
+        console.log('connected to server');
+        socket.emit('message', '서버에서 보내는 메시지입니다!!');
+    });
+
+    socket.on('chat',(data)=>{
+        console.log("======================================================");
+        console.log("[서버 -> 브라우저]:",data);
+        console.log("======================================================");
+    })
+
+
+
+
+    // handle the event sent with socket.send()
+    socket.on("disconnect", data => {
+        console.log("disconnected")
+    });
+
+</script>
+
+</html>

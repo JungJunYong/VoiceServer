@@ -49,5 +49,4 @@ test/**/*.js.map
 .idea
 
 # Project
-/public
 /dist

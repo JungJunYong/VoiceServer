@@ -7,5 +7,4 @@ export const config: Partial<TsED.Configuration> = {
   version,
   rootDir,
   logger: loggerConfig,
-  // additional shared configuration
 };
