@@ -9,6 +9,7 @@ import methodOverride from "method-override";
 import cors from "cors";
 import "@tsed/ajv";
 import {config, rootDir} from "./config";
+import mariadb from "mariadb";
 
 
 @Configuration({
