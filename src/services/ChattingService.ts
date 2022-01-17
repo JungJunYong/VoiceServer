@@ -17,7 +17,7 @@ export class ChattingService {
      * @param socket
      * @param session
      */
-    $onConnection(@Socket socket: SocketIO.Socket, @SocketSession session: SocketSession) {
+    $onConnection(@Socket socket: Socket, @SocketSession session: SocketSession) {
         console.log('Socket 연결 되었습니다.')
         console.log(`Socket ID: ${socket.id}`);
 
