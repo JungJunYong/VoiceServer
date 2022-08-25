@@ -3,6 +3,10 @@ import {Delete, Get, Post} from "@tsed/schema";
 import {mariadbSql} from "../database/connect/mariadb";
 import {QueryParams} from "@tsed/common";
 
+export interface test {
+    data: {test: string,testb: number}
+}
+
 @Controller("/chat")
 export class ChattingControl {
 
@@ -17,6 +21,12 @@ export class ChattingControl {
     @Get("/user",["/user/:id"])
     async getUser(@QueryParams("id") id: string) {
         return await mariadbSql<USER>(`SELECT * FROM USER WHERE ID='${id}'`);
+    }
+
+    @Get("/login",["/user/:id:pw"])
+    async loginUser(@QueryParams("id") id: string,@QueryParams("pw") pw: string) {
+        const user = await mariadbSql<USER>(`SELECT * FROM USER WHERE ID='${id}' AND PASSWORD='${pw}'`);
+        return user;
     }
 
     @Post("/post")
